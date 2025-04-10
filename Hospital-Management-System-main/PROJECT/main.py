@@ -1,3 +1,4 @@
+import os
 from ast import Param
 from flask import Flask,render_template,request,session,redirect,url_for,flash
 from flask_sqlalchemy import SQLAlchemy
@@ -7,6 +8,10 @@ from werkzeug.security import generate_password_hash,check_password_hash
 from flask_login import login_user,logout_user,login_manager,LoginManager
 from flask_login import login_required,current_user
 from flask_mail import Mail
+
+from dotenv import load_dotenv
+
+load_dotenv() 
 import json
 
 
@@ -24,11 +29,12 @@ login_manager.login_view='login'
 
 app.config.update(
     MAIL_SERVER='smtp.gmail.com',
-    MAIL_PORT='465',
+    MAIL_PORT=465,
     MAIL_USE_SSL=True,
-    MAIL_USERNAME="sayhamali4@gmail.com",
-    MAIL_PASSWORD="jfhwzsxjnxdbbbkg"
+    MAIL_USERNAME=os.getenv('MAIL_USERNAME'),
+    MAIL_PASSWORD=os.getenv('MAIL_PASSWORD')
 )
+
 mail = Mail(app)
 
 

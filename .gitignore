@@ -1,0 +1,26 @@
+# Python
+_pycache_/
+*.pyc
+
+# Environment
+.env
+venv/
+ENV/
+env/
+
+# VSCode or other editors
+.vscode/
+.idea/
+
+# Byte-compiled / cache
+*.pyo
+*.pyd
+*.pyc
+*.pdb
+
+# Database files (optional)
+*.sqlite3
+
+# OS files
+.DS_Store
+Thumbs.db
